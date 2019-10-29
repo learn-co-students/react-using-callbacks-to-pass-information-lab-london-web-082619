@@ -9,9 +9,24 @@ export default class Cell extends Component {
     }
   }
   
+  // Add event listener to change color to selected color on click
+
+  changeCellColor = () => {
+    let newColor = this.props.newCellColor();
+    this.setState({
+      color: newColor
+    })
+    console.log(`Color changed to ${this.state.color}`)
+  }
+
+
   render() {
     return (
-      <div className="cell" style={{backgroundColor: this.state.color}}>
+      <div 
+        className="cell" 
+        style={{backgroundColor: this.state.color}} 
+        onClick={() => this.changeCellColor()}
+      >
       </div>
     )
   }
